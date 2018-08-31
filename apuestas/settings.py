@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'nfl',
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'apuestas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['.', './nfl'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
