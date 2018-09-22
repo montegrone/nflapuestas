@@ -1,11 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Equipo
+from django.http import HttpResponse, HttpResponseRedirect
+from .models import Todo
+from django.views.decorators.csrf import csrf_exempt
+
+
 # Create your views here.
+@csrf_exempt
 def home(req):
-#   import pdb; pdb.set_trace()
-    equipos=Equipo.objects.all()
-    return render(req, 'home.html', {'equipos': equipos})
+    if req.method == 'POST' and req.POST['descripcion']:
+        todo = Todo(descripcion=req.POST['descripcion'], terminado=False)
+        todo.save()
+        return HttpResponseRedirect("/")
+
+
+    todos=Todo.objects.all()
+    hechos=[]
+    porhacer=[]
+    for xx in todos:
+        if xx.terminado:
+            hechos.insert(0,xx)
+        else:
+            porhacer.insert(0,xx)
+
+
+
+    return render(req, 'home.html', {'hechos': hechos, 'porhacer': porhacer})
 
 # def comparar(equipo1,equipo2):
 #     import...

@@ -1,48 +1,51 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 
- <div class="encabezado">
-     encabezado
+<div class="container">
+
+    <div class="encabezado">
+        encabezado
+    </div>
+
+    <div class="formulario">
+
+        <form action="/" method="post">
+            <input type="text" name="descripcion" class="botones">
+            <input type="submit" class="crear" value="crear">
+        </form>
+    </div>
+
+    <div class="boton-submit">
+        submit
+    </div>
+
+    <div class="tareas">
+        <div class="titulo-tareas">todo:</div>
+        {% for item in porhacer %}
+        <div class="item"> {{item.descripcion}} </div>
+        {% endfor %}
+    </div>
+
+    <div class="tareas hechas">
+        <div class="titulo-tareas">todo:</div>
+        {% for item in hechos %}
+        <div class="item"> {{item.descripcion}} </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="footnote">
+        diseños web
+    </div>
+
+
 </div>
-
- <div class="boton-nuevo">
-     nuevo
-</div>
-
-<div class="boton-submit">
-     submit
-</div>
-
-<div class="tareas">
-     <div class="titulo-tareas">todo:</div>
-         <div class="listado">1</div>
-         <div class="listado">2</div>
-         <div class="listado">3</div>
-         <div class="listado">4</div>
-</div>
-
-<div class="hechas">
-     <div class="titulo-hechas">done:</div>
-         <div class="listado">1</div>
-         <div class="listado">2</div>
-         <div class="listado">3</div>
-         <div class="listado">4</div>
-</div>
-
-
- <div class="footnote">
-     diseños web
-</div>
-
 <!--
  <div class="encabezado">
      <div class="col1">1</div>
      <div class="col2">2</div>
      <div class="col3">3</div>
 </div>-->
-
-
-
 
 
 <!--    <select>
@@ -58,9 +61,6 @@
   <option>{{equipo}}</option>
      {% endfor %}
 </select>-->
-
-
-
 
 
 <!--action=comparar(equipo1,equipo2)-->
