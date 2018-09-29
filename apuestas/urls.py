@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from nfl.views import home
+from nfl.views import home, marcar_como_hecho
 
 urlpatterns = [
     path(r'', home, name='home'),
     path('admin/', admin.site.urls),
-
+    path('marcar-como-hecho', marcar_como_hecho)
 ]

@@ -33,6 +33,10 @@
     border: 1px solid black;
 }
 
+.item form {
+  display: inline;
+}
+
 .hechas {
     border: 1px solid black;
     background-color: red;

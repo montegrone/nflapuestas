@@ -9,7 +9,7 @@
 
     <div class="formulario">
 
-        <form action="/" method="post">
+        <form class="crear_tarea" action="/" method="post">
             <input type="text" name="descripcion" class="botones">
             <input type="submit" class="crear" value="crear">
         </form>
@@ -22,7 +22,13 @@
     <div class="tareas">
         <div class="titulo-tareas">todo:</div>
         {% for item in porhacer %}
-        <div class="item"> {{item.descripcion}} </div>
+        <div class="item">
+            <form action="/marcar-como-hecho" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Hecho" />
+                <input type="hidden" name="id" value="{{item.id}}">
+            </form>
+            {{item.descripcion}} </div>
         {% endfor %}
     </div>
 

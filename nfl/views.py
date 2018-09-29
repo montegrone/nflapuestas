@@ -29,3 +29,12 @@ def home(req):
 # def comparar(equipo1,equipo2):
 #     import...
 #     print(equipo1.valor,equipo2.valor)
+
+def marcar_como_hecho(req):
+    if req.method == 'POST':
+        todo = Todo.objects.get(id=req.POST['id'])
+        todo.terminado = True
+        todo.save()
+        return HttpResponseRedirect("/")
+
+
